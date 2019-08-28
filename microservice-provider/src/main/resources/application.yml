@@ -7,7 +7,7 @@ mybatis:
   mapper-locations: classpath:mybatis/mapper/**/*.xml
 spring:
   application:
-    name: microservice-provider
+    name: microservice-provider                         #Eureka注册的名字就是从这取的
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource        #当前数据源操作类型 #mysql驱动包
     driver-class-name: org.gjt.mm.mysql.Driver
@@ -19,3 +19,7 @@ spring:
       initial-size: 5                                   #初始化连接数
       max-total: 5                                      #最大连接数
       max-wait-millis: 200                              #等待连接获取最大超时时间
+eureka:
+  client:                                               #客户端注册 -> Eureka
+    service-url:
+      defaultZone: http://localhost:7001/eureka

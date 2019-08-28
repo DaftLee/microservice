@@ -12,6 +12,16 @@
     <artifactId>microservice-provider</artifactId>
 
     <dependencies>
+        <!--Eureka 客户端(新老版本不一样)-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <!--指定gson版本，不然启动Eureka客户端报错-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
