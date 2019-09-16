@@ -2,7 +2,9 @@ package club.dafty.springcloud.control;
 
 import club.dafty.springcloud.pojo.Dept;
 import club.dafty.springcloud.service.DeptService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +22,7 @@ public class DeptControllerConsumer {
     public boolean add(Dept dept){
         return deptService.add(dept);
     }
+//    @HystrixCommand(fallbackMethod = "getError")
     @RequestMapping(value = "/consumer/dept/get/{id}")
     public Dept get(@PathVariable Long id){
         return deptService.get(id);
@@ -28,6 +31,12 @@ public class DeptControllerConsumer {
     @RequestMapping(value = "/consumer/dept/list")
     public List<Dept> list(){
         return deptService.list();
+    }
+
+    public Dept getError(Long id){
+        Dept dept = new Dept();
+        dept.setDname("查询失败哦");
+        return dept;
     }
 
 }

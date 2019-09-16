@@ -1,5 +1,6 @@
 package club.dafty.springcloud.service;
 
+import club.dafty.springcloud.hystrix.DeptServiceFallbackFactory;
 import club.dafty.springcloud.pojo.Dept;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +15,7 @@ import java.util.List;
  * @version 1.0
  * @date 2019/9/16 9:17
  */
-@FeignClient(value = "MICROSERVICE-PROVIDER")
+@FeignClient(value = "MICROSERVICE-PROVIDER",fallbackFactory = DeptServiceFallbackFactory.class)
 public interface DeptService {
     @RequestMapping(value = "dept/add",method = RequestMethod.POST)
     public boolean add(@RequestBody Dept dept);
