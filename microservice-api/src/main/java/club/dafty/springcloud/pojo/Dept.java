@@ -25,4 +25,16 @@ public class Dept {
      * 来自哪个数据库（一个微服务可以对应多个数据库）
      */
     private String db_source;
+
+    public void setDeptno(Long deptno) {
+        this.deptno = deptno;
+    }
+
+    public void setDname(String dname) {
+        this.dname = dname;
+    }
+
+    public void setDb_source(String db_source) {
+        this.db_source = db_source;
+    }
 }
