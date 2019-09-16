@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * Hystrix熔断器工厂类，一次配置
+ * Hystrix熔断器工厂类
  * @author leechengchao@foxmail.com
  * @version 1.0
  * @date 2019/9/16 14:17
