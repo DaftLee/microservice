@@ -7,7 +7,11 @@
         <module>microservice-api</module>
         <module>microservice-provider</module>
         <module>microservice-consumer</module>
+        <module>microservice-consumer-feign</module>
         <module>microservice-eureka</module>
+        <module>microservice-hystrix-dashboard</module>
+        <module>microservice-zuul-gateway</module>
+        <module>microservice-config-server</module>
     </modules>
     <!--<parent>-->
         <!--<groupId>org.springframework.boot</groupId>-->
