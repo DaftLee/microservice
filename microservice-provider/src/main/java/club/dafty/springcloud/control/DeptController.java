@@ -6,6 +6,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -16,6 +17,10 @@ public class DeptController {
     private static final Logger logger = LoggerFactory.getLogger(DeptController.class);
     @Autowired
     private DeptServiceImpl service;
+    @Value("${server.port}")
+    private String port;
+    @Value("${spring.application.name}")
+    private String applicationName;
 
     @RequestMapping(value = "dept/add",method = RequestMethod.POST)
     public boolean add(@RequestBody Dept dept) {
@@ -39,7 +44,10 @@ public class DeptController {
         return service.getAll();
     }
 
-
+    @RequestMapping(value = "dept/port",method = RequestMethod.GET)
+    public String getPort(){
+        return port+"\t"+applicationName;
+    }
     /**
      * 返回值、入参类型必须和HystrixCommand注解的类一致，不然报错
      * @return

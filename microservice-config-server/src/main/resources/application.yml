@@ -8,4 +8,4 @@ spring:
       server:
         git:
           uri: git@github.com:DaftLee/myconfig.git
-          timeout: 10
+          timeout: 15
